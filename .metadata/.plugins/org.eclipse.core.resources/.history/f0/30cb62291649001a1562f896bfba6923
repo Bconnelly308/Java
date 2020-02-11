@@ -1,0 +1,55 @@
+public class MenuItem {
+	String name;
+	String description;
+	boolean appetizer;
+	boolean entree;
+	boolean dessert;
+	double price;
+	int calories;
+ 
+	public MenuItem(String name, 
+	                String description, 
+	            	boolean appetizer,
+	            	boolean entree,
+	            	boolean dessert,
+	            	double price,
+	            	int calories, 
+	{
+		this.name = name;
+		this.description = description;
+		this.appetizer = appetizer;
+		this.entree = entree;
+		this.dessert = dessert;
+		this.price = price;
+		this.calories = calories;
+	}
+  
+	public String getName() {
+		return name;
+	}
+  
+	public String getDescription() {
+		return description;
+	}
+  
+	public double getPrice() {
+		return price;
+	}
+	
+	public int getCalories() {
+		return calories;
+		
+	}
+  
+	public boolean isAppetizer() {
+		return appetizer;
+	}
+	
+	public boolean isEntree() {
+		return entree;
+	}
+	
+	public boolean isDessert() {
+		return dessert;
+	}
+}

@@ -1,0 +1,28 @@
+public class MenuTest {
+	public static void main(String args[]) {
+		DessertMenu dessertMenu = new DessertMenu();
+		EntreeMenu entreeMenu = new EntreeMenu();
+		AppetizerMenu appetizerMenu = new AppetizerMenu();
+ 
+		WaitStaf waitStaff = new WaitStaff(appetizerMenu, entreeMenu, dessertMenu);
+ 
+		waitStaff.printMenu();
+		waitStaff.printAppetizerMenu();
+		waitStaff.printDessertMenu();
+
+		System.out.println("\nCustomer asks, is the Hotdog vegetarian?");
+		System.out.print("Waitress says: ");
+		if (waitress.isItemAppetizer("Hotdog")) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
+		System.out.println("\nCustomer asks, are the Waffles vegetarian?");
+		System.out.print("Waitress says: ");
+		if (waitress.isItemAppetizer("Waffles")) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
+	}
+}
