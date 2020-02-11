@@ -16,7 +16,6 @@ INDEX VERSION 1.131+C:\Users\britt\eclipse-workspace\.metadata\.plugins\org.ecli
 3626382975.index
 2727424496.index
 3183539375.index
-2380175872.index
 1401678300.index
 1241298325.index
 2492909726.index
