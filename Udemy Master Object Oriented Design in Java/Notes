@@ -1,0 +1,37 @@
+- The main method is the starting point for every Java application
+- Memory areas: stack and heap
+	- Stack
+			- frames are created for the main, and the methods
+	- Heap
+			- when each object(s) are created
+- Garbage Collection: a process that runs in the heap, looks for objects that don't have any relationship, to clear space.
+
+Variables
+	- Local Variables: created within method
+	- References Variables: referencing variable created outside
+	- Instance Variables: belongs to a specific instance
+	
+Inheritance
+	- Parent(Super) and Child(Sub) Class
+	
+Abstract Class
+	- has abstract methods: an abstraction of the idea of something being able to fly
+	- can only be extended, not instantiated
+
+Polymorphism
+	- allows program to be more dynamic
+	
+- A class can implement more than one interface
+
+Software Design:
+	- Starts with problem statement
+	- Think about design (UML).
+		- Doesn't need to be complete.
+		- Capable of changing and enhancing.
+		- Develope Iterativily
+		- Keep things simple
+
+Single Responsibility Principle (SRP)
+	- A class should only have a single reason to change.
+		
+	

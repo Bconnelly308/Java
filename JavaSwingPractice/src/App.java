@@ -1,3 +1,5 @@
+//this project uses JSwing for button clicks, scroll bars, customer components, toolbars, communication
+
 import java.awt.Frame;
 
 import javax.swing.JFrame;
