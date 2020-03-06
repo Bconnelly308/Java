@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 abstract public class Receipt {
 	String name;
@@ -7,29 +8,15 @@ abstract public class Receipt {
 		}
 
 		public void prepare() {
-			System.out.println("Preparing for " + name);
+			JOptionPane.showMessageDialog(null, "Preparing for " + name);
 		}
 
 		public void process() {
-			System.out.println("Processing " + name);
+			JOptionPane.showMessageDialog(null, "Processing " + name);
 		}
 
 		public void print() {
-			System.out.println("Printing Receipt For " + name + " Receipt");
+			JOptionPane.showMessageDialog(null, "Printing Receipt For " + name + " payment");
 		}
-
-
-/*		public String toString() {
-			// code to display pizza name and ingredients
-			StringBuffer display = new StringBuffer();
-			display.append("---- " + name + " ----\n");
-			display.append(dough + "\n");
-			display.append(sauce + "\n");
-			for (String topping : toppings) {
-				display.append(topping + "\n");
-			}
-			return display.toString();
-		}
-	}
-*/
+		
 }

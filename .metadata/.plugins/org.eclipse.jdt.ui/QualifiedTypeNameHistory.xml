@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
-<fullyQualifiedTypeName name="TextPanel"/>
-<fullyQualifiedTypeName name="javax.swing.JButton"/>
-<fullyQualifiedTypeName name="javax.swing.GroupLayout"/>
-<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
-<fullyQualifiedTypeName name="MenuDecorator"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="javax.annotation.processing.RoundEnvironment"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="Customer"/>
 <fullyQualifiedTypeName name="WebPage"/>
 <fullyQualifiedTypeName name="WebPageProxy"/>
@@ -21,7 +13,6 @@
 <fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="Vodafone"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="NetworkSettings"/>
 <fullyQualifiedTypeName name="Browser"/>
 <fullyQualifiedTypeName name="Restaurant"/>
@@ -50,14 +41,23 @@
 <fullyQualifiedTypeName name="ItemDecorator"/>
 <fullyQualifiedTypeName name="Pasta"/>
 <fullyQualifiedTypeName name="Alfredo"/>
-<fullyQualifiedTypeName name="Order"/>
 <fullyQualifiedTypeName name="Menu"/>
 <fullyQualifiedTypeName name="java.awt.Menu"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="Receipt"/>
 <fullyQualifiedTypeName name="Chicken"/>
 <fullyQualifiedTypeName name="org.omg.CORBA.PUBLIC_MEMBER"/>
-<fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="Payment"/>
+<fullyQualifiedTypeName name="SimpleRemoteControl"/>
+<fullyQualifiedTypeName name="Stovetop"/>
+<fullyQualifiedTypeName name="StoveBoilCommand"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="App"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.awt.Button"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="DessertMenu"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="Order"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

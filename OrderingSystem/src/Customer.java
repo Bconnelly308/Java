@@ -11,13 +11,4 @@ public class Customer {
 		
 	}
 	
-	
-	public static String placeOrder() {
-		return "";
-	}
-		
-	public static String providePayment() {
-			return "";
-	}
-
 }

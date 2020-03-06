@@ -3,7 +3,19 @@ import javax.swing.JOptionPane;
 public class App {
 	
 	public static void main(String[] args) {
-
+		
+		SimpleRemoteControl remote = new SimpleRemoteControl();
+		Stovetop stovetop = new Stovetop();
+		StoveBoilCommand stoveBoil = new StoveBoilCommand(stovetop);
+		StoveSauteCommand stoveSaute = new StoveSauteCommand(stovetop);
+		StoveWarmCommand stoveWarm = new StoveWarmCommand(stovetop);
+		StoveFryCommand stoveFry = new StoveFryCommand(stovetop);
+		double itemTotal = 0;
+        DessertMenu dessertMenu = new DessertMenu();
+		Waitress waitress = new Waitress(dessertMenu);
+		
+		
+		JOptionPane.showMessageDialog(null, "Order Date: " + Order.setOrderDate());
 		String firstName =JOptionPane.showInputDialog("Enter your first name.");
 		String lastName = JOptionPane.showInputDialog("Enter your last name.");
 		String[] possiblePayValues = {"Credit", "Debit", "Cash"};
@@ -14,18 +26,11 @@ public class App {
 		String[] possibleFoodValues = {"Chicken Alfredo", "Shrimp Alfredo", "Chicken and Shrimp Alfredo"};
 		String item = (String) JOptionPane.showInputDialog(null, "Choose your food item.", "Input", JOptionPane.INFORMATION_MESSAGE,  null, possibleFoodValues ,  possibleFoodValues[0]);
 		Menu food = new Menu(item);
-		SimpleRemoteControl remote = new SimpleRemoteControl();
-		Stovetop stovetop = new Stovetop();
-		StoveBoilCommand stoveBoil = new StoveBoilCommand(stovetop);
-		StoveSauteCommand stoveSaute = new StoveSauteCommand(stovetop);
-		StoveWarmCommand stoveWarm = new StoveWarmCommand(stovetop);
-		StoveFryCommand stoveFry = new StoveFryCommand(stovetop);
-		double itemTotal = 0;
 		
 		if (food.item.equalsIgnoreCase("chicken alfredo")) {
+			
 			Pasta pasta1 = new Chicken(new Alfredo());
 			JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
-			//below, can i put the message outputted in the console in a pretty java swing box?
 			remote.setCommand(stoveBoil);
 			remote.buttonWasPressed();
 			remote.setCommand(stoveFry);
@@ -37,6 +42,7 @@ public class App {
 		}
 		
 		else if (food.item.equalsIgnoreCase("shrimp alfredo")) {
+			
 			Pasta pasta1 = new Shrimp(new Alfredo());
 			JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
 			remote.setCommand(stoveBoil);
@@ -50,6 +56,7 @@ public class App {
 		}
 		
 		else if (food.item.equalsIgnoreCase("chicken and shrimp alfredo")) {
+			
 			Pasta pasta1 = new Chicken(new Shrimp(new Alfredo()));
 			JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
 			remote.setCommand(stoveBoil);
@@ -64,25 +71,38 @@ public class App {
 			
 		}
 		
-		else {			
-			System.out.println("Sorry, that item is not available");
-			itemTotal = 0;
-		}
+		waitress.printMenu();
+		String description = null;
+		Double price = 0.0;
+		String[] possibleDessertValues = {"Chocolate Cake", "Tiramisu", "Cannoli"};
+		String name = (String) JOptionPane.showInputDialog(null, "Choose your dessert", "Input", JOptionPane.INFORMATION_MESSAGE,  null, possibleDessertValues ,  possibleDessertValues[0]);
+		System.out.println(name);
+		MenuItem dessert = new MenuItem(name, description, price);
+		System.out.println(dessert.name);
+		System.out.println(dessert.getPrice());
+		double dessertPrice = dessert.price;
+		System.out.println(dessertPrice);
+		
+		JOptionPane.showMessageDialog(null, "Dessert chosen: " + name);
+		
 		
 		if (itemTotal != 0) {
-			
-			JOptionPane.showMessageDialog(null, "Subtotal: $" + itemTotal + "\nTotal: $" + Math.round((itemTotal + .0775) * 100.00) / 100.00);
+			Double subTotal = (double) Math.round(((itemTotal + dessertPrice) * 100.00) / 100.00);
+			Double totalDouble = (double) Math.round(((subTotal * 1.0775) * 100.00) / 100.00);
+			JOptionPane.showMessageDialog(null, "Subtotal: $" + subTotal + "\nTotal: $" + totalDouble);
 			JOptionPane.showMessageDialog(null, "Payment method chosen: " + human.paymentMethod);
 			SimpleReceiptFactory factory = new SimpleReceiptFactory();
 			Checkout checkout = new Checkout(factory);
-			//Can i output the console stuff in a pretty java swing screen here too?
 			Receipt receipt = checkout.orderReceipt(human.paymentMethod);
-			System.out.println("Thank you for your payment method: " + receipt.getName() + "\n");
+			JOptionPane.showMessageDialog(null, "Thank you for your payment method: " + receipt.getName() + "\n");
 			
-		}
+		}	
 		
 		else {
+			
 			System.out.println("Please Reorder");
 		}
+		
 	}
+	
 }

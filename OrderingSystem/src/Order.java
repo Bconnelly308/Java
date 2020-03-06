@@ -8,8 +8,8 @@ public class Order {
 	public Order(int orderID, LocalDate orderDate) {
 		super();
 		// TODO Auto-generated constructor stub
-		this.setOrderID();
-		this.setOrderDate();
+		Order.setOrderID();
+		Order.setOrderDate();
 		
 	}
 
