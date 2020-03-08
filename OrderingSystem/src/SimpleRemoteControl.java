@@ -8,8 +8,9 @@ public class SimpleRemoteControl {
 		slot = command;
 	}
  
-	public void buttonWasPressed() {
+	public boolean buttonWasPressed() {
 		slot.execute();
+		return true;
 	}
 	
 }

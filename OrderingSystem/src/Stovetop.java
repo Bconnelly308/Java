@@ -4,7 +4,7 @@ public class Stovetop {
 	
 	public Stovetop() {
 	}
-
+	
 	public void boil() {
 		JOptionPane.showMessageDialog(null, "Boiling the pasta");
 	}

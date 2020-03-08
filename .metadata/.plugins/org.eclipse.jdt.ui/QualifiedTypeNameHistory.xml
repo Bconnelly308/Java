@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
-<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-<fullyQualifiedTypeName name="javax.annotation.processing.RoundEnvironment"/>
-<fullyQualifiedTypeName name="Customer"/>
 <fullyQualifiedTypeName name="WebPage"/>
 <fullyQualifiedTypeName name="WebPageProxy"/>
 <fullyQualifiedTypeName name="WebPageImpl"/>
@@ -58,6 +53,11 @@
 <fullyQualifiedTypeName name="DessertMenu"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="Order"/>
-<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="MenuItem"/>
+<fullyQualifiedTypeName name="java.util.jar.Attributes.Name"/>
+<fullyQualifiedTypeName name="java.io.ObjectInputStream.GetField"/>
+<fullyQualifiedTypeName name="ChocolateCake"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
 </qualifiedTypeNameHistroy>

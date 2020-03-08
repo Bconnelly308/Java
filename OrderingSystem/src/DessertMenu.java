@@ -2,6 +2,7 @@ public class DessertMenu implements Menu2 {
 	static final int MAX_ITEMS = 6;
 	int numberOfItems = 0;
 	MenuItem[] menuItems;
+	
   
 	public DessertMenu() {
 		menuItems = new MenuItem[MAX_ITEMS];
@@ -15,7 +16,7 @@ public class DessertMenu implements Menu2 {
 	
 	}
   
-	public void addItem(String name, String description, double price) 
+	public void addItem(String name, String description, double price)
 	{
 		MenuItem menuItem = new MenuItem(name, description, price);
 		if (numberOfItems >= MAX_ITEMS) {
@@ -32,6 +33,7 @@ public class DessertMenu implements Menu2 {
   
 	public Iterator createIterator() {
 		return new DessertMenuIterator(menuItems);
+		
 	}
 }
 

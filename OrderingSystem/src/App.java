@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 
 public class App {
@@ -13,6 +15,8 @@ public class App {
 		double itemTotal = 0;
         DessertMenu dessertMenu = new DessertMenu();
 		Waitress waitress = new Waitress(dessertMenu);
+		Double dessertPrice = null;
+		DecimalFormat df = new DecimalFormat("0.00");
 		
 		
 		JOptionPane.showMessageDialog(null, "Order Date: " + Order.setOrderDate());
@@ -27,82 +31,83 @@ public class App {
 		String item = (String) JOptionPane.showInputDialog(null, "Choose your food item.", "Input", JOptionPane.INFORMATION_MESSAGE,  null, possibleFoodValues ,  possibleFoodValues[0]);
 		Menu food = new Menu(item);
 		
-		if (food.item.equalsIgnoreCase("chicken alfredo")) {
+		try {
+			if (food.item.equalsIgnoreCase("chicken alfredo")) {
+				
+				Pasta pasta1 = new Chicken(new Alfredo());
+				JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
+				remote.setCommand(stoveBoil);
+				remote.buttonWasPressed();
+				remote.setCommand(stoveFry);
+				remote.buttonWasPressed();
+				remote.setCommand(stoveWarm);
+				remote.buttonWasPressed();
+				itemTotal = pasta1.getCost();
+				
+			}
 			
-			Pasta pasta1 = new Chicken(new Alfredo());
-			JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
-			remote.setCommand(stoveBoil);
-			remote.buttonWasPressed();
-			remote.setCommand(stoveFry);
-			remote.buttonWasPressed();
-			remote.setCommand(stoveWarm);
-			remote.buttonWasPressed();
-			itemTotal = pasta1.getCost();
+			else if (food.item.equalsIgnoreCase("shrimp alfredo")) {
+				
+				Pasta pasta1 = new Shrimp(new Alfredo());
+				JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
+				remote.setCommand(stoveBoil);
+				remote.buttonWasPressed();
+				remote.setCommand(stoveSaute);
+				remote.buttonWasPressed();
+				remote.setCommand(stoveWarm);
+				remote.buttonWasPressed();
+				itemTotal = pasta1.getCost();
+				
+			}
 			
-		}
-		
-		else if (food.item.equalsIgnoreCase("shrimp alfredo")) {
+			else if (food.item.equalsIgnoreCase("chicken and shrimp alfredo")) {
+				
+				Pasta pasta1 = new Chicken(new Shrimp(new Alfredo()));
+				JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
+				remote.setCommand(stoveBoil);
+				remote.buttonWasPressed();
+				remote.setCommand(stoveFry);
+				remote.buttonWasPressed();
+				remote.setCommand(stoveSaute);
+				remote.buttonWasPressed();
+				remote.setCommand(stoveWarm);
+				remote.buttonWasPressed();
+				itemTotal = pasta1.getCost();
+				
+			}
+				
+			waitress.printMenu();
+			String[] possibleDessertValues = {"Chocolate Cake", "Tiramisu", "Cannoli"};
+			String name = (String) JOptionPane.showInputDialog(null, "Choose your dessert", "Input", JOptionPane.INFORMATION_MESSAGE,  null, possibleDessertValues ,  possibleDessertValues[0]);
+						
+			if (name.equalsIgnoreCase("chocolate cake")) {
+				dessertPrice = ChocolateCake.getPrice();
+			}
 			
-			Pasta pasta1 = new Shrimp(new Alfredo());
-			JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
-			remote.setCommand(stoveBoil);
-			remote.buttonWasPressed();
-			remote.setCommand(stoveSaute);
-			remote.buttonWasPressed();
-			remote.setCommand(stoveWarm);
-			remote.buttonWasPressed();
-			itemTotal = pasta1.getCost();
+			else if (name.equalsIgnoreCase("tiramisu")) {
+				dessertPrice = Tiramisu.getPrice();
+			}
 			
-		}
-		
-		else if (food.item.equalsIgnoreCase("chicken and shrimp alfredo")) {
+			else if (name.equalsIgnoreCase("cannoli")) {
+				dessertPrice = Cannoli.getPrice();
+			}
 			
-			Pasta pasta1 = new Chicken(new Shrimp(new Alfredo()));
-			JOptionPane.showMessageDialog(null, "You ordered: " + food.item + "\nIngredients: " + pasta1.getDescription() + "\nDish Calories: " + pasta1.getCalories());
-			remote.setCommand(stoveBoil);
-			remote.buttonWasPressed();
-			remote.setCommand(stoveFry);
-			remote.buttonWasPressed();
-			remote.setCommand(stoveSaute);
-			remote.buttonWasPressed();
-			remote.setCommand(stoveWarm);
-			remote.buttonWasPressed();
-			itemTotal = pasta1.getCost();
+			JOptionPane.showMessageDialog(null, "Dessert chosen: " + name);		
 			
-		}
-		
-		waitress.printMenu();
-		String description = null;
-		Double price = 0.0;
-		String[] possibleDessertValues = {"Chocolate Cake", "Tiramisu", "Cannoli"};
-		String name = (String) JOptionPane.showInputDialog(null, "Choose your dessert", "Input", JOptionPane.INFORMATION_MESSAGE,  null, possibleDessertValues ,  possibleDessertValues[0]);
-		System.out.println(name);
-		MenuItem dessert = new MenuItem(name, description, price);
-		System.out.println(dessert.name);
-		System.out.println(dessert.getPrice());
-		double dessertPrice = dessert.price;
-		System.out.println(dessertPrice);
-		
-		JOptionPane.showMessageDialog(null, "Dessert chosen: " + name);
-		
-		
-		if (itemTotal != 0) {
-			Double subTotal = (double) Math.round(((itemTotal + dessertPrice) * 100.00) / 100.00);
-			Double totalDouble = (double) Math.round(((subTotal * 1.0775) * 100.00) / 100.00);
-			JOptionPane.showMessageDialog(null, "Subtotal: $" + subTotal + "\nTotal: $" + totalDouble);
-			JOptionPane.showMessageDialog(null, "Payment method chosen: " + human.paymentMethod);
-			SimpleReceiptFactory factory = new SimpleReceiptFactory();
-			Checkout checkout = new Checkout(factory);
-			Receipt receipt = checkout.orderReceipt(human.paymentMethod);
-			JOptionPane.showMessageDialog(null, "Thank you for your payment method: " + receipt.getName() + "\n");
-			
-		}	
-		
-		else {
-			
-			System.out.println("Please Reorder");
-		}
-		
+			if (itemTotal != 0) {
+				Double subTotal = ((itemTotal + dessertPrice) * 100.00) / 100.00;
+				Double total = ((subTotal * 1.0775) * 100.00) / 100.00;
+				JOptionPane.showMessageDialog(null, "Subtotal: $" + df.format(subTotal) + "\nTotal: $" + df.format(total));
+				JOptionPane.showMessageDialog(null, "Payment method chosen: " + human.paymentMethod);
+				SimpleReceiptFactory factory = new SimpleReceiptFactory();
+				Checkout checkout = new Checkout(factory);
+				Receipt receipt = checkout.orderReceipt(human.paymentMethod);
+				JOptionPane.showMessageDialog(null, "Thank you for your payment method: " + receipt.getName() + "\n");
+				
+			}	
+						
+		} catch (NullPointerException e) {System.out.println("System error "+ e + ". Please Restart Order");}
+	
 	}
 	
 }
